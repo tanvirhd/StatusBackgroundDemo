@@ -50,10 +50,13 @@ flutter:
     - assets/icons/ic_download.png
     - assets/icons/ic_save.png
     - assets/icons/ic_share.png
-    - assets/images/bg1.png
     - assets/icons/ic_colorpicker.png
     - assets/icons/ic_fold.png
     - assets/icons/ic_unfold.png
+    - assets/images/bg1.png
+    - assets/pics/img1.png
+    - assets/pics/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

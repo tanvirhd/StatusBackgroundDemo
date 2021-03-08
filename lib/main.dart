@@ -1,6 +1,8 @@
+import 'package:StatusBackgroundDemo/model/ModelCategory.dart';
+import 'package:StatusBackgroundDemo/model/ModelCategoryList.dart';
 import 'package:StatusBackgroundDemo/widgets/WidgetAddText.dart';
-import 'package:StatusBackgroundDemo/widgets/WidgetBackgroundImagePick.dart';
-import 'package:StatusBackgroundDemo/widgets/WidgetColorPick.dart';
+import 'package:StatusBackgroundDemo/widgets/WidgetCategoryList.dart';
+import 'package:StatusBackgroundDemo/widgets/WigetColorAndBgPicker.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +30,33 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  List<ModelCategoryList> dummyCatList=[
+    ModelCategoryList([
+      ModelCategory("1","assets/pics/img1.png"),
+      ModelCategory("2","assets/pics/img2.png"),
+      ModelCategory("3","assets/pics/img3.png"),
+      ModelCategory("4","assets/pics/img4.png"),
+      ModelCategory("5","assets/pics/img5.png"),
+      ModelCategory("6","assets/pics/img7.png")],
+        "Trending"),
+    ModelCategoryList([
+      ModelCategory("1","assets/pics/img5.png"),
+      ModelCategory("2","assets/pics/img6.png"),
+      ModelCategory("3","assets/pics/img7.png"),
+      ModelCategory("4","assets/pics/img2.png"),
+      ModelCategory("5","assets/pics/img4.png"),
+      ModelCategory("6","assets/pics/img1.png")],
+        "Love"),
+    ModelCategoryList([
+      ModelCategory("1","assets/pics/img7.png"),
+      ModelCategory("2","assets/pics/img6.png"),
+      ModelCategory("3","assets/pics/img5.png"),
+      ModelCategory("4","assets/pics/img4.png"),
+      ModelCategory("5","assets/pics/img2.png"),
+      ModelCategory("6","assets/pics/img3.png")],
+        "Birthday"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final appbar = AppBar(
@@ -47,32 +76,48 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: Image.asset('assets/icons/ic_cross.png',fit: BoxFit.cover),
           onPressed:null)
     );
+    final row=Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text("Text Color"),
+        Text("Background")
+      ],);
 
     return Scaffold(
       appBar: appbar,
-      body: Column(
-        children: <Widget>[
-          AddText(appbar),
-          Container(
-            margin: EdgeInsets.only(top: 8,bottom: 4,left: 12,right: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Text Color"),
-                Text("Background")
-            ],),
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ColorPick(),
-                BackgroundImagePick()
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            WidgetAddText((MediaQuery.of(context).size.height -
+                appbar.preferredSize.height -
+                MediaQuery.of(context).padding.top) * 0.5),
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                  appbar.preferredSize.height -
+                  MediaQuery.of(context).padding.top) * 0.02,
+              margin: EdgeInsets.only(top: 8,bottom: 4,left: 12,right: 12),
+              child: row,
             ),
-          )
-        ],
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                  appbar.preferredSize.height - 12-
+                  MediaQuery.of(context).padding.top) * 0.08,
+              child:WidgetColorAndBgPicker() ,
+            ),
+            Container(
+              height: (MediaQuery.of(context).size.height -
+                appbar.preferredSize.height - 40-
+                MediaQuery.of(context).padding.top) * 0.40,
+              margin: EdgeInsets.only(bottom: 4),
+              child: WidgetCategoryList(dummyCatList),
+            )
+          ],
+        ),
       ),
     );
   }
 }
+
+
+/*
+*/

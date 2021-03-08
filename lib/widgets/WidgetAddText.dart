@@ -1,17 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddText extends StatelessWidget{
-  final appbar;
-
-  AddText(this.appbar);
+class WidgetAddText extends StatelessWidget{
+  final double height;
+  WidgetAddText(this.height);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: (MediaQuery.of(context).size.height -
-            appbar.preferredSize.height -
-            MediaQuery.of(context).padding.top) * 0.5,
+        height: height,
         width: double.infinity,
         alignment: Alignment.center,
         child: new Stack(
@@ -19,8 +16,9 @@ class AddText extends StatelessWidget{
           children: [
             Image.asset('assets/images/bg1.png',
                 fit: BoxFit.fill,
-                width: double.infinity,
-                height:(MediaQuery.of(context).size.height - appbar.preferredSize.height - MediaQuery.of(context).padding.top) * 0.5),
+              height: height,
+              width: double.infinity,
+            ),
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,

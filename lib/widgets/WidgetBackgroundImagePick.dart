@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class BackgroundImagePick extends StatelessWidget{
+class WidgetBackgroundImagePick extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
