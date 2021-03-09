@@ -3,8 +3,9 @@ import 'package:StatusBackgroundDemo/model/ModelCategory.dart';
 class ModelCategoryList{
   List<ModelCategory> _itemList;
   String _title;
+  String  _id;
 
-  ModelCategoryList(this._itemList, this._title);
+  ModelCategoryList(this._itemList, this._title,this._id);
 
   String get title => _title;
 

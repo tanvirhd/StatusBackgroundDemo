@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 
 class WidgetCategoryList extends StatelessWidget{
   List<ModelCategoryList> categoryList;
+  Function _onSeeAllClicked;
 
-  WidgetCategoryList(this.categoryList);
+  WidgetCategoryList(this.categoryList,this._onSeeAllClicked);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class WidgetCategoryList extends StatelessWidget{
       child: ListView.builder(
         itemCount: categoryList.length,
         itemBuilder: (context,index){
-          return WidgetCategory(categoryList[index].itemList, categoryList[index].title);
+          return WidgetCategory(categoryList[index].itemList, categoryList[index].title,_onSeeAllClicked,index);
         }),
     );
   }
